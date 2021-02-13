@@ -47,4 +47,8 @@ MonoBehaviour:
   persistant: 0
   preloadOnAwake: 1
   trs: {fileID: 740946822741297872}
-  spawnEntries: []
+  spawnEntries:
+  - prefab: {fileID: 8498151381001625226, guid: 78f8d101b8003db46a07afd1d7239b93, type: 3}
+    trs: {fileID: 8498151381001625222, guid: 78f8d101b8003db46a07afd1d7239b93, type: 3}
+    prefabIndex: 0
+    preload: 0

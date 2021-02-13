@@ -82,13 +82,13 @@ namespace GameDevJourney
 			// try
 			// {
 				InputSystem.Update ();
-				mousePosition = InputManager.GetMousePosition(MathfExtensions.NULL_INT);
+				mousePosition = InputManager.MousePosition;
 				for (int i = 0; i < updatables.Length; i ++)
 				{
 					IUpdatable updatable = updatables[i];
 					updatable.DoUpdate ();
 				}
-				Physics2D.Simulate(Time.deltaTime);
+				Physics.Simulate(Time.deltaTime);
 				ObjectPool.Instance.DoUpdate ();
 				framesSinceLoadedScene ++;
 				previousMousePosition = mousePosition;

@@ -56,9 +56,25 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 42b118c7-364d-4865-b584-b92d15510517
-      m_Path: <XRController>{LeftHand}/triggerPressed
+      m_Path: <XRController>{LeftHand}/trigger
       m_Interactions: 
       m_Processors: 
       m_Groups: 
       m_Action: Left Shoot Input
+      m_Flags: 0
+  rightShootInputAction:
+    m_Name: Right Shoot Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 43e4ae88-5028-496a-950d-80560c0c6c5f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: cd15e2dd-5fd6-448d-9f73-03058bba044c
+      m_Path: <XRController>{RightHand}/trigger
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Right Shoot Input
       m_Flags: 0
