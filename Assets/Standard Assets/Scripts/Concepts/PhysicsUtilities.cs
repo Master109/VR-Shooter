@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using GameDevJourney;
+using Extensions;
 
-namespace Extensions
+namespace GameDevJourney
 {
-	public static class Physics2DExtensions
+	public static class PhysicsUtilities
 	{
 		public static RaycastHit2D LinecastWithWidth (Vector2 start, Vector2 end, float width, int layerMask)
 		{
@@ -46,6 +46,55 @@ namespace Extensions
 				}
 			} while (hit.collider != null);
 			return hits.ToArray();
+		}
+
+		public static Vector3 GetPointVelocity (Vector3 velocity, Vector3 angularVelocity, Vector3 localPoint)
+		{
+			return velocity + Vector3.Cross(angularVelocity, localPoint);
+		}
+
+		public static Vector3 GetPointVelocity (Vector3 previousPosition, Quaternion previousRotation, Transform trs, Vector3 localPoint)
+		{
+			return GetPointVelocity(GetVelocity(trs.position, previousPosition), GetAngularVelocity(previousRotation, trs.rotation), localPoint);
+		}
+
+		public static Vector3 GetPointVelocity (Vector3 previousPosition, Quaternion previousRotation, Transform trs, Vector3 localPoint, float deltaTime)
+		{
+			return GetPointVelocity(GetVelocity(trs.position, previousPosition, deltaTime), GetAngularVelocity(previousRotation, trs.rotation, deltaTime), localPoint);
+		}
+
+		public static Vector3 GetAngularVelocity (Quaternion fromRotation, Quaternion toRotation, float deltaTime)
+		{
+			Quaternion q = toRotation * Quaternion.Inverse(fromRotation);
+			if (Mathf.Abs(q.w) > 1023.5f / 1024.0f)
+				return new Vector3(0 ,0, 0);
+			float gain;
+			if (q.w < 0.0f)
+			{
+				float angle = Mathf.Acos(-q.w);
+				gain = -2.0f * angle / (Mathf.Sin(angle) * deltaTime);
+			}
+			else
+			{
+				float angle = Mathf.Acos(q.w);
+				gain = 2.0f * angle / (Mathf.Sin(angle) * deltaTime);
+			}
+			return new Vector3(q.x * gain, q.y * gain, q.z * gain);
+		}
+
+		public static Vector3 GetAngularVelocity (Quaternion fromRotation, Quaternion toRotation)
+		{
+			return GetAngularVelocity(fromRotation, toRotation, Time.deltaTime);
+		}
+
+		public static Vector3 GetVelocity (Vector3 fromPosition, Vector3 toPosition, float deltaTime)
+		{
+			return (toPosition - fromPosition) / deltaTime;
+		}
+
+		public static Vector3 GetVelocity (Vector3 fromPosition, Vector3 toPosition)
+		{
+			return GetVelocity(fromPosition, toPosition, Time.deltaTime);
 		}
 	}
 }
