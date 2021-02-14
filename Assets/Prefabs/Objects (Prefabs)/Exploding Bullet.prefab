@@ -17,6 +17,8 @@ MonoBehaviour:
   rigid: {fileID: 5311625219335225101}
   collider: {fileID: 5311625219335225094}
   shootingGun: {fileID: 0}
+  lifetime: 1
+  windExplosionPrefab: {fileID: 8286469436053996599, guid: b413718ca2607b24aad6361792c33387, type: 3}
 --- !u!1001 &4348737096499044749
 PrefabInstance:
   m_ObjectHideFlags: 0

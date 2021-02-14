@@ -53,7 +53,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3501914453958663510, guid: ad72983c059cbf24ab80621c5e594c0d, type: 3}
       propertyPath: m_Name
-      value: Wall
+      value: Wall Variant 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6737374793259630279, guid: ad72983c059cbf24ab80621c5e594c0d, type: 3}
+      propertyPath: m_SelectedEditorRenderState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7166575997086555894, guid: ad72983c059cbf24ab80621c5e594c0d, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8563708184756174104, guid: ad72983c059cbf24ab80621c5e594c0d, type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad72983c059cbf24ab80621c5e594c0d, type: 3}

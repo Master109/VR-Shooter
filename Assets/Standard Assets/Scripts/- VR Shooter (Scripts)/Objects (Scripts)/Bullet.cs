@@ -10,7 +10,7 @@ namespace VRShooter
 		[HideInInspector]
 		public Gun shootingGun;
 
-		void OnDisable ()
+		public virtual void OnDisable ()
 		{
 			collider.enabled = false;
 			Physics.IgnoreCollision(shootingGun.collider, collider, false);
